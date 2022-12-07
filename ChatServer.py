@@ -190,7 +190,15 @@ class CRCServer(object):
         self.print_info("Configuring the server socket...")
 
         # TODO: Implement the above functionality
+        self.server_socket = socket(AF_INET, SOCK_STREAM)
+        self.server_socket.bind(('', self.port))
+        self.server_socket.setblocking(False)
+
+        event_mask = selectors.EVENT_READ
+        baseData = BaseConnectionData()
+        self.sel.register(self.server_socket, event_mask, baseData)
         
+        self.server_socket.listen(1)
 
 
     def connect_to_server(self):
@@ -217,6 +225,17 @@ class CRCServer(object):
         self.print_info("Connecting to remote server %s:%i..." % (self.connect_to_host, self.connect_to_port))
 
         # TODO: Implement the above functionality
+        self.connect_socket = socket(AF_INET, SOCK_STREAM)
+        self.connect_socket.connect((self.connect_to_host_addr, self.connect_to_port))
+        self.connect_socket.setblocking(False)
+
+        event_mask = selectors.EVENT_READ | selectors.EVENT_WRITE
+
+        baseData = BaseConnectionData()
+        self.sel.register(self.connect_socket, event_mask, baseData)
+
+        reg_message = ServerRegistrationMessage.bytes(self.id, 0, self.server_name, self.server_info)
+        self.connect_socket.send(reg_message)
 
 
 
@@ -250,7 +269,16 @@ class CRCServer(object):
         
         while not self.request_terminate:
             # TODO: Implement the above functionality
-            pass    
+            registeredIO_readyToProcess = self.sel.select(0.1)
+            for registeredIO, events in registeredIO_readyToProcess:
+                # Process server read events
+                if (events & selectors.EVENT_READ) and not(events & selectors.EVENT_WRITE):
+                    self.accept_new_connection(registeredIO)
+                # Process events with any other socket
+                else:
+                    self.handle_io_device_events(registeredIO, events)
+                    
+        self.cleanup()
 
 
 
@@ -273,8 +301,14 @@ class CRCServer(object):
         """
         self.print_info("Cleaning up the server")
         # TODO: Implement the above functionality
-        pass
+        self.server_socket.close()
 
+        io_devices = list(self.sel._fd_to_key.values())
+        for io_device in io_devices:
+            self.sel.unregister(io_device.fileobj)
+            io_device.fileobj.close()
+        
+        self.sel.close()
 
 
     def accept_new_connection(self, io_device):
@@ -298,7 +332,13 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the above functionality
-        pass
+        connectionSocket, addr = io_device.fileobj.accept()
+        connectionSocket.setblocking(False)
+
+        selectorData = BaseConnectionData()
+        events = selectors.EVENT_READ | selectors.EVENT_WRITE
+
+        self.sel.register(connectionSocket, events, selectorData)
 
 
    
@@ -327,7 +367,22 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the above functionality
-        pass
+        
+        if event_mask & selectors.EVENT_READ:
+            read_bytes = io_device.fileobj.recv(1024)
+
+            if read_bytes:
+                self.handle_messages(io_device, read_bytes)
+            else:
+                self.sel.unregister(io_device.fileobj)
+                io_device.fileobj.close()
+        
+        if event_mask & selectors.EVENT_WRITE:
+            wb = io_device.data.write_buffer
+
+            if wb:
+                io_device.fileobj.send(wb)
+                io_device.data.write_buffer = b''
 
 
     
