@@ -756,8 +756,8 @@ class CRCServer(object):
             self.send_message_to_host(message.source_id, no_dest_msg)
         else:
             chat_msg = ClientChatMessage.bytes(message.source_id, message.destination_id, message.content)
-            self.send_message_to_host(message.destination_id, chat_msg)
-            #self.broadcast_message_to_adjacent_clients(chat_msg, message.source_id)
+            self.send_message_to_host(self.hosts_db[message.destination_id].first_link_id, chat_msg)
+            #self.broadcast_message_to_adjacent_clients(chat_msg)
 
 ##############################################################################################################
 
@@ -778,7 +778,14 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the above functionality
-        pass
+        if message.source_id in self.hosts_db.keys():
+            quit_msg = ClientQuitMessage.bytes(message.source_id, message.content)
+            self.broadcast_message_to_servers(quit_msg)
+            self.broadcast_message_to_adjacent_clients(quit_msg, message.source_id)
+
+            self.hosts_db.pop(message.source_id)
+            if message.source_id in self.adjacent_user_ids:
+                self.adjacent_user_ids.remove(message.source_id)
     
 ##############################################################################################################    
     
