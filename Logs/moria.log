@@ -1,0 +1,83 @@
+2022-12-07 14:34:29,957 - IRCServer[13315] - INFO - Launching server moria...
+2022-12-07 14:34:29,962 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:29,978 - IRCServer[13315] - INFO - Connecting to remote server rivendale:32202...
+2022-12-07 14:34:29,987 - IRCServer[13315] - INFO - Listening for new connections on port 32205
+2022-12-07 14:34:29,987 - IRCServer[13315] - INFO - Received msg from Host ID #5 "b'\x00\x00\x00\x00\x05\x00\x00\x00\x00\x05\x00\x0fmoria"The Black Pit"'"
+2022-12-07 14:34:29,994 - IRCServer[13315] - INFO - Sending message to Host ID #5 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:29,996 - IRCServer[13315] - INFO - Sending message to Host ID #1 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x02\x08\x00\x15theshire"Home of the Hobbits"'"
+2022-12-07 14:34:29,999 - IRCServer[13315] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,003 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x02\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,008 - IRCServer[13315] - INFO - Received msg from Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,009 - IRCServer[13315] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x02\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,214 - IRCServer[13315] - INFO - Launching server edoras...
+2022-12-07 14:34:30,224 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:30,236 - IRCServer[13315] - INFO - Connecting to remote server lothlorien:32204...
+2022-12-07 14:34:30,255 - IRCServer[13315] - INFO - Received msg from Host ID #6 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x00\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:30,258 - IRCServer[13315] - INFO - Listening for new connections on port 32206
+2022-12-07 14:34:30,260 - IRCServer[13315] - INFO - Sending message to Host ID #6 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,268 - IRCServer[13315] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x04\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,274 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,283 - IRCServer[13315] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,487 - IRCServer[13315] - INFO - Launching server minastirith...
+2022-12-07 14:34:30,498 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:30,507 - IRCServer[13315] - INFO - Connecting to remote server lothlorien:32204...
+2022-12-07 14:34:30,512 - IRCServer[13315] - INFO - Listening for new connections on port 32207
+2022-12-07 14:34:30,514 - IRCServer[13315] - INFO - Received msg from Host ID #7 "b'\x00\x00\x00\x00\x07\x00\x00\x00\x00\x0b\x00\x10minastirith"Tower of Guard"'"
+2022-12-07 14:34:30,521 - IRCServer[13315] - INFO - Sending message to Host ID #7 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,527 - IRCServer[13315] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x04\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,535 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,541 - IRCServer[13315] - INFO - Sending message to Host ID #6 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x04\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:30,553 - IRCServer[13315] - INFO - Received msg from Host ID #6 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x04\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:30,555 - IRCServer[13315] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,751 - IRCServer[13315] - INFO - Launching server mirkwood...
+2022-12-07 14:34:30,760 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:30,777 - IRCServer[13315] - INFO - Connecting to remote server rivendale:32202...
+2022-12-07 14:34:30,798 - IRCServer[13315] - INFO - Received msg from Host ID #8 "b'\x00\x00\x00\x00\x08\x00\x00\x00\x00\x08\x00\x15mirkwood"Wood of Greenleaves"'"
+2022-12-07 14:34:30,801 - IRCServer[13315] - INFO - Listening for new connections on port 32208
+2022-12-07 14:34:30,809 - IRCServer[13315] - INFO - Sending message to Host ID #8 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,818 - IRCServer[13315] - INFO - Sending message to Host ID #1 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x02\x08\x00\x15theshire"Home of the Hobbits"'"
+2022-12-07 14:34:30,825 - IRCServer[13315] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,843 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x02\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,856 - IRCServer[13315] - INFO - Sending message to Host ID #5 "b'\x00\x00\x00\x00\x05\x00\x00\x00\x02\x05\x00\x0fmoria"The Black Pit"'"
+2022-12-07 14:34:30,863 - IRCServer[13315] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x02\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:30,872 - IRCServer[13315] - INFO - Received msg from Host ID #5 "b'\x00\x00\x00\x00\x05\x00\x00\x00\x02\x05\x00\x0fmoria"The Black Pit"'"
+2022-12-07 14:34:30,874 - IRCServer[13315] - INFO - Received msg from Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 14:34:30,875 - IRCServer[13315] - INFO - Received msg from Host ID #4 "b'\x01\x00\x00\x00\x04\x00\x00\x00\x00\x00\x02\x00\x00\x00*A machine has already registered with ID 4'"
+2022-12-07 14:34:31,018 - IRCServer[13315] - INFO - Launching server isengard...
+2022-12-07 14:34:31,063 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:31,091 - IRCServer[13315] - INFO - Connecting to remote server edoras:32206...
+2022-12-07 14:34:31,105 - IRCServer[13315] - INFO - Listening for new connections on port 32209
+2022-12-07 14:34:31,106 - IRCServer[13315] - INFO - Received msg from Host ID #9 "b'\x00\x00\x00\x00\t\x00\x00\x00\x00\x08\x00\x1disengard"Angrenost, The Iron Fortres"'"
+2022-12-07 14:34:31,129 - IRCServer[13315] - INFO - Sending message to Host ID #9 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x06\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:31,143 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x06\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:31,156 - IRCServer[13315] - INFO - Sending message to Host ID #6 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x06\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:31,189 - IRCServer[13315] - INFO - Received msg from Host ID #6 "b'\x00\x00\x00\x00\x06\x00\x00\x00\x06\x06\x00%edoras"Home of the Golden Hall of Meduseld"'"
+2022-12-07 14:34:31,317 - IRCServer[13315] - INFO - Launching server osgiliath...
+2022-12-07 14:34:31,346 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:31,370 - IRCServer[13315] - INFO - Connecting to remote server minastirith:32207...
+2022-12-07 14:34:31,386 - IRCServer[13315] - INFO - Listening for new connections on port 32210
+2022-12-07 14:34:31,389 - IRCServer[13315] - INFO - Received msg from Host ID #10 "b'\x00\x00\x00\x00\n\x00\x00\x00\x00\t\x00\x16osgiliath"Citadel of the Stars"'"
+2022-12-07 14:34:31,409 - IRCServer[13315] - INFO - Sending message to Host ID #10 "b'\x00\x00\x00\x00\x07\x00\x00\x00\x07\x0b\x00\x10minastirith"Tower of Guard"'"
+2022-12-07 14:34:31,426 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x07\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:31,450 - IRCServer[13315] - INFO - Received msg from Host ID #7 "b'\x00\x00\x00\x00\x07\x00\x00\x00\x07\x0b\x00\x10minastirith"Tower of Guard"'"
+2022-12-07 14:34:31,595 - IRCServer[13315] - INFO - Launching server barad-dur...
+2022-12-07 14:34:31,611 - IRCServer[13315] - INFO - Configuring the server socket...
+2022-12-07 14:34:31,642 - IRCServer[13315] - INFO - Connecting to remote server minastirith:32207...
+2022-12-07 14:34:31,670 - IRCServer[13315] - INFO - Listening for new connections on port 32211
+2022-12-07 14:34:31,679 - IRCServer[13315] - INFO - Received msg from Host ID #11 "b'\x00\x00\x00\x00\x0b\x00\x00\x00\x00\t\x00\x10barad-dur"The Dark Tower"'"
+2022-12-07 14:34:31,697 - IRCServer[13315] - INFO - Sending message to Host ID #11 "b'\x00\x00\x00\x00\x07\x00\x00\x00\x07\x0b\x00\x10minastirith"Tower of Guard"'"
+2022-12-07 14:34:31,724 - IRCServer[13315] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x07\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 14:34:31,744 - IRCServer[13315] - INFO - Sending message to Host ID #10 "b'\x00\x00\x00\x00\n\x00\x00\x00\x07\t\x00\x16osgiliath"Citadel of the Stars"'"
+2022-12-07 14:34:31,780 - IRCServer[13315] - INFO - Received msg from Host ID #7 "b'\x00\x00\x00\x00\x07\x00\x00\x00\x07\x0b\x00\x10minastirith"Tower of Guard"'"
+2022-12-07 14:34:31,783 - IRCServer[13315] - INFO - Received msg from Host ID #10 "b'\x00\x00\x00\x00\n\x00\x00\x00\x07\t\x00\x16osgiliath"Citadel of the Stars"'"
+2022-12-07 14:34:33,117 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,158 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,269 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,282 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,386 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,394 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,406 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,487 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,505 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,510 - IRCServer[13315] - INFO - Cleaning up the server
+2022-12-07 14:34:33,610 - IRCServer[13315] - INFO - Cleaning up the server

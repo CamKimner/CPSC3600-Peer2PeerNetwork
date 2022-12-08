@@ -1,0 +1,26 @@
+2022-12-07 19:07:14,648 - IRCServer[22408] - INFO - Launching server grey_havens...
+2022-12-07 19:07:14,653 - IRCServer[22408] - INFO - Configuring the server socket...
+2022-12-07 19:07:14,657 - IRCServer[22408] - INFO - Connecting to remote server theshire:11010...
+2022-12-07 19:07:14,660 - IRCServer[22408] - INFO - Listening for new connections on port 11030
+2022-12-07 19:07:14,661 - IRCServer[22408] - INFO - Received msg from Host ID #3 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x00\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2022-12-07 19:07:14,663 - IRCServer[22408] - INFO - Sending message to Host ID #3 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x01\x08\x00\x15theshire"Home of the Hobbits"'"
+2022-12-07 19:07:14,664 - IRCServer[22408] - INFO - Sending message to Host ID #3 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x01\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 19:07:14,666 - IRCServer[22408] - INFO - Sending message to Host ID #2 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x03\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2022-12-07 19:07:14,667 - IRCServer[22408] - INFO - Received msg from Host ID #3 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x03\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2022-12-07 19:07:14,668 - IRCServer[22408] - INFO - Received msg from Host ID #2 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x01\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 19:07:14,908 - IRCServer[22408] - INFO - Launching server lothlorien...
+2022-12-07 19:07:14,911 - IRCServer[22408] - INFO - Configuring the server socket...
+2022-12-07 19:07:14,917 - IRCServer[22408] - INFO - Connecting to remote server rivendale:11020...
+2022-12-07 19:07:14,922 - IRCServer[22408] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x00\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 19:07:14,923 - IRCServer[22408] - INFO - Listening for new connections on port 11040
+2022-12-07 19:07:14,929 - IRCServer[22408] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x02\x00\x00\x00\x02\t\x00\x0frivendale"Elronds House"'"
+2022-12-07 19:07:14,971 - IRCServer[22408] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x01\x00\x00\x00\x02\x08\x00\x15theshire"Home of the Hobbits"'"
+2022-12-07 19:07:14,980 - IRCServer[22408] - INFO - Sending message to Host ID #4 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x02\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2022-12-07 19:07:14,985 - IRCServer[22408] - INFO - Sending message to Host ID #1 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 19:07:14,990 - IRCServer[22408] - INFO - Sending message to Host ID #3 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 19:07:14,995 - IRCServer[22408] - INFO - Received msg from Host ID #4 "b'\x00\x00\x00\x00\x04\x00\x00\x00\x04\n\x00\x11lothlorien"The Golden Wood"'"
+2022-12-07 19:07:14,998 - IRCServer[22408] - INFO - Received msg from Host ID #3 "b'\x00\x00\x00\x00\x03\x00\x00\x00\x02\x0b\x00\x1cgrey_havens"Gates to the Blessed Realm"'"
+2022-12-07 19:07:15,411 - IRCServer[22408] - INFO - Cleaning up the server
+2022-12-07 19:07:15,415 - IRCServer[22408] - INFO - Cleaning up the server
+2022-12-07 19:07:15,515 - IRCServer[22408] - INFO - Cleaning up the server
+2022-12-07 19:07:15,516 - IRCServer[22408] - INFO - Cleaning up the server

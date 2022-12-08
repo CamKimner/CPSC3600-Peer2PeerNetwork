@@ -189,7 +189,7 @@ class CRCServer(object):
         """        
         self.print_info("Configuring the server socket...")
 
-        # TODO: Implement the above functionality
+        # TODO: Implement the above functionalityclea
         self.server_socket = socket(AF_INET, SOCK_STREAM)
         self.server_socket.bind(('', self.port))
         self.server_socket.setblocking(False)
@@ -198,7 +198,7 @@ class CRCServer(object):
         baseData = BaseConnectionData()
         self.sel.register(self.server_socket, event_mask, baseData)
         
-        self.server_socket.listen(1)
+        self.server_socket.listen(10)
 
 
     def connect_to_server(self):
@@ -369,7 +369,7 @@ class CRCServer(object):
         # TODO: Implement the above functionality
         
         if event_mask & selectors.EVENT_READ:
-            read_bytes = io_device.fileobj.recv(1024)
+            read_bytes = io_device.fileobj.recv(2048)
 
             if read_bytes:
                 self.handle_messages(io_device, read_bytes)
@@ -429,7 +429,8 @@ class CRCServer(object):
         if destination_id in self.hosts_db:
             self.print_info("Sending message to Host ID #%s \"%s\"" % (destination_id, message))
             # TODO: Implement the above functionality
-            pass
+            
+            self.hosts_db[destination_id].write_buffer = message
 
 
 
@@ -456,7 +457,9 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the above functionality
-        pass
+        for adj_id in self.adjacent_server_ids:
+            if adj_id != ignore_host_id:
+                self.send_message_to_host(adj_id, message)
 
 
 
@@ -547,7 +550,52 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the functionality described above
-        pass
+        id = message.source_id
+
+        if id in self.hosts_db.keys():
+            status_content = f"A machine has already registered with ID {id}"
+            status_msg = StatusUpdateMessage.bytes(self.id, 0, 0x02, status_content)
+            self.send_message_to_host(id, status_msg)
+            return
+   
+        server_conn_data = ServerConnectionData(message.source_id, message.server_name, message.server_info)
+
+        if message.last_hop_id == 0: # if new server is adjacent
+            server_conn_data.first_link_id = message.source_id
+            self.hosts_db[message.source_id] = server_conn_data
+            self.adjacent_server_ids.append(id)
+
+            self.sel.modify(io_device.fileobj, selectors.EVENT_READ | selectors.EVENT_WRITE, server_conn_data)
+
+            reg_self_message = ServerRegistrationMessage.bytes(self.id, self.id, self.server_name, self.server_info)
+            self.send_message_to_host(message.source_id, reg_self_message)
+
+            for host in self.hosts_db.values():
+                if host.id != message.source_id:
+                    if isinstance(host, ServerConnectionData):
+                        #print(f"Creating servregmes host.id: {host.id}, id: {id}, host.server_name: {host.server_name}, host.server_info: {host.server_info}")
+                        reg_message = ServerRegistrationMessage.bytes(host.id, self.id, host.server_name, host.server_info)
+                    else:
+                        #print(f"host.id: {host.id}, id: {id}, host.client_name: {host.client_name}, host.client_info: {host.client_info}")
+                        reg_message = ClientRegistrationMessage.bytes(host.id, self.id, host.client_name, host.client_info)
+                    #print("Sending message to host.id:", host.id, " from : ", self.id)
+                    self.send_message_to_host(message.source_id, reg_message)
+
+            broadcast_new_message = ServerRegistrationMessage.bytes(message.source_id, message.source_id, message.server_name, message.server_info)
+            self.broadcast_message_to_servers(broadcast_new_message, message.source_id)
+        elif message.last_hop_id == message.source_id:
+            server_conn_data.first_link_id = message.last_hop_id
+            self.hosts_db[message.source_id] = server_conn_data
+            self.adjacent_server_ids.append(id)
+
+            self.sel.modify(io_device.fileobj, selectors.EVENT_READ | selectors.EVENT_WRITE, server_conn_data)
+        else:
+            server_conn_data.first_link_id = message.last_hop_id
+            self.hosts_db[message.source_id] = server_conn_data
+
+            broadcast_new_message = ServerRegistrationMessage.bytes(message.source_id, self.id, message.server_name, message.server_info)
+            self.broadcast_message_to_servers(broadcast_new_message, server_conn_data.first_link_id)
+
 
 ##############################################################################################################
 
