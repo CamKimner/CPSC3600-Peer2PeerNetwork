@@ -191,6 +191,7 @@ class CRCServer(object):
 
         # TODO: Implement the above functionalityclea
         self.server_socket = socket(AF_INET, SOCK_STREAM)
+        
         self.server_socket.bind(('', self.port))
         self.server_socket.setblocking(False)
 
@@ -432,7 +433,7 @@ class CRCServer(object):
             self.print_info("Sending message to Host ID #%s \"%s\"" % (destination_id, message))
             # TODO: Implement the above functionality
             
-            self.hosts_db[destination_id].write_buffer = message
+            self.hosts_db[destination_id].write_buffer += message
 
 
 
@@ -569,10 +570,10 @@ class CRCServer(object):
 
             self.sel.modify(io_device.fileobj, (selectors.EVENT_READ | selectors.EVENT_WRITE), server_conn_data)
 
-            reg_self_message = ServerRegistrationMessage.bytes(self.id, self.id, self.server_name, self.server_info)
+            reg_self_message = ServerRegistrationMessage.bytes(self.id, 0, self.server_name, self.server_info)
             self.send_message_to_host(message.source_id, reg_self_message)
 
-            print(f"before looping in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
+            #print(f"before looping in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
             for host in self.hosts_db.values():
                 if host.id != message.source_id:
                     if isinstance(host, ServerConnectionData):
@@ -590,14 +591,17 @@ class CRCServer(object):
         elif message.last_hop_id == message.source_id:
             server_conn_data.first_link_id = message.last_hop_id
             self.hosts_db[message.source_id] = server_conn_data
-            print(f"connecting response in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
-            self.adjacent_server_ids.append(message.last_hop_id)
+            #print(f"connecting response in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
+            self.adjacent_server_ids.append(message.source_id)
 
             self.sel.modify(io_device.fileobj, selectors.EVENT_READ | selectors.EVENT_WRITE, server_conn_data)
+
+            broadcast_new_message = ServerRegistrationMessage.bytes(message.source_id, self.id, message.server_name, message.server_info)
+            self.broadcast_message_to_servers(broadcast_new_message, message.last_hop_id)
         else:
             server_conn_data.first_link_id = message.last_hop_id
             self.hosts_db[message.source_id] = server_conn_data
-            print(f"else in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
+            #print(f"else in id: {self.id} name: {self.server_name} current hosts.db", self.hosts_db)
 
             broadcast_new_message = ServerRegistrationMessage.bytes(message.source_id, self.id, message.server_name, message.server_info)
             self.broadcast_message_to_servers(broadcast_new_message, message.last_hop_id)
@@ -648,6 +652,7 @@ class CRCServer(object):
             None        
         """
         # TODO: Implement the above functionality
+        pass
         if message.source_id in self.hosts_db.keys():
             status_content = f"A machine has already registered with ID {message.source_id}"
             status_msg = StatusUpdateMessage.bytes(self.id, 0, 0x02, status_content)
@@ -656,7 +661,7 @@ class CRCServer(object):
 
         client_conn_data = ClientConnectionData(message.source_id, message.client_name, message.client_info)
 
-        if
+        
 
 
 ##############################################################################################################
